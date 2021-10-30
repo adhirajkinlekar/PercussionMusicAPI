@@ -26,13 +26,12 @@ exports.getLists = catchAsync(async (req, res, next) => {
 exports.getList = catchAsync(async (req, res, next) => {
   const list = await ListModel.findOne({ "_id": req.params.id }).populate({
     path: 'items',
-    project:{NumberOfItemsInArray:{size:"likes"}},
-    options: { sort: { 'NumberOfItemsInArray': -1 } },
+    // options: { sort: { 'likes': -1 } },
     select: "-__v",
     limit: 100,
     populate: {
       path: 'comments',
-      options: { sort: { 'likesCount': -1 } },
+      options: { sort: { 'createdDate': -1 } },
       select: "-__v",
       populate: {
         path: 'createdBy',

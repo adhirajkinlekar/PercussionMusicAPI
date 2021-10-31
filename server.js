@@ -16,7 +16,7 @@ mongoose.connect(db, {
     process.env.NODE_ENV === 'development' ?  console.log('connected to MongoDB') : null;
 })
 
-const port = process.env.port || 3001
+const port = process.env.PORT || 3001
 const server = app.listen(port, () => {
     process.env.NODE_ENV === 'development' ? console.log(`running... on port ${port}`) : null;
 })

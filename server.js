@@ -13,17 +13,18 @@ mongoose.connect(db, {
     useFindAndModify: false,
     useUnifiedTopology: true
 }).then((con) => {
-    console.log('connected to MongoDB')
+    process.env.NODE_ENV === 'development' ?  console.log('connected to MongoDB') : null;
 })
 
 const port = process.env.port || 3001
 const server = app.listen(port, () => {
-    console.log(`running... on port ${port}`)
+    process.env.NODE_ENV === 'development' ? console.log(`running... on port ${port}`) : null;
 })
 
 process.on('unhandledRejection', err => {
-    console.log('UNHANDLED REJECTION! 💥 Shutting down...');
-    console.log(err.name, err.message);
+    process.env.NODE_ENV === 'development' ?   console.log('UNHANDLED REJECTION! 💥 Shutting down...') : null;
+    process.env.NODE_ENV === 'development' ?   console.log(err.name, err.message) : null;
+ 
     server.close(() => {
         process.exit(1);// in  production add tools to restart the server. In some cases in production it is handled isself
     });

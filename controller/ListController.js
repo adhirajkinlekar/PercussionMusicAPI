@@ -5,6 +5,7 @@ const CommentModel = require('../model/commentModel');
 const VoteModel = require('../model/voteModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+
 exports.mostFamous = ((req, res, next) => {
   req.params.query = {
     sort: likes, limit: 10
@@ -110,7 +111,6 @@ exports.deleteList = catchAsync(async (req, res) => {
 })
 
 exports.createList = catchAsync(async (req, res) => {
-  console.log(req.body)
   req.body.listInfo.createdDate = req.currentDate;
   const newList = await ListModel.create(req.body.listInfo)
   if (newList) {

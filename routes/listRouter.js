@@ -47,7 +47,6 @@ router.route('/items/:itemId/comments/:commentId')
   .patch(listController.updateComment)
   .delete(listController.deleteComment)
 
-
 router.use(authController.protect,
   authController.restrictTo('admin'));
 
@@ -69,8 +68,6 @@ router.route('/:id/items')
 router.route('/:id/items/:itemId')
   .patch(listController.updateItem)
   .delete(listController.deleteItem)
-
-
 
 
 module.exports = router;

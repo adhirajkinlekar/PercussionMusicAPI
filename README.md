@@ -1,8 +1,3 @@
-https://percussionmusicui.herokuapp.com/
-
-use the following credentials to log into the application                                                                                                             
-email : walterwhite@gmail.com password : 12345678
-
 Features :
 - Sign In
 - Sign Out
